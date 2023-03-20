@@ -38,7 +38,6 @@ const formState = reactive({
 })
 
 function login() {
-  console.log('login')
   store.login(formState.email, formState.password)
 }
 

@@ -41,13 +41,10 @@ export const useUserStore = defineStore('userStore', {
     },
     async checkAuth() {
       try {
-        console.log('checkAuth')
-
         const response = await axios.get(`${API_URL}/refresh`, {
           withCredentials: true,
         })
 
-        console.log(response)
         localStorage.setItem('token', response.data.accessToken)
         this.setAuth(true)
         this.setUser(response.data.user)

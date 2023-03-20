@@ -5,12 +5,12 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onBeforeMount } from 'vue'
 import { useUserStore } from '@/store/user'
 
 const store = useUserStore()
 
-onMounted(() => {
+onBeforeMount(() => {
   if (localStorage.getItem('token')) {
     store.checkAuth()
   }
