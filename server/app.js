@@ -6,7 +6,7 @@ const router = require('./router/index')
 const errorMiddleware = require('./middlewares/error-middleware')
 const mongoose = require('mongoose')
 
-const SERVER_PORT = 9000
+const SERVER_PORT = process.env.SERVER_PORT || 9000
 const app = express()
 
 app.use(express.json())
@@ -14,7 +14,7 @@ app.use(cookieParser())
 app.use(
   cors({
     credentials: true,
-    origin: process.env.CLIENT_URL,
+    origin: 'http://127.0.0.1:5173',
   }),
 )
 app.use('/api', router)
